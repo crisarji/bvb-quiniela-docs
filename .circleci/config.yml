@@ -1,37 +1,40 @@
-version: 2
-
+version: 2.1
 jobs:
-  ci:
+  build:
+    working_directory: ~/repo
     docker:
-      - image: cimg/node:lts
+      - image: circleci/node:10.16.3
     steps:
       - checkout
-
+      - run:
+          name: update-npm
+          command: "sudo npm install -g npm@5"
       - restore_cache:
-          keys:
-            - node-v1-{{ checksum "package-lock.json" }}
-
+          key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
-          name: Install dependencies
-          command: npm ci
-
+          name: install-packages
+          command: npm install
       - save_cache:
-          key: node-v1-{{ checksum "package-lock.json" }}
+          key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
-            - ~/.npm
-
-
+            - ./node_modules
       - run:
-          name: Run tests
+          name: test
           command: npm run test
-
-workflows:
-  version: 2
-  ci:
-    jobs:
-      - ci:
-          filters:
-            branches:
-              only:
-                - main
-                - master
+      - run:
+          name: build-project
+          command: npm run generate:gh-pages
+      - run:
+          name: Install and configure dependencies
+          command: |
+            npm install gh-pages --save-dev
+            git config user.email "fikfikky@gmail.com"
+            git config user.name "coderonfleek"
+      - run:
+          name: Deploy docs to gh-pages branch
+          command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
+      - store_artifacts:
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml
