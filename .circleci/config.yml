@@ -32,7 +32,7 @@ jobs:
             git config user.name "crisarji"
       - add_ssh_keys:
           fingerprints:
-            - "e2:2c:fa:cb:49:9b:8b:b5:12:0c:c3:59:8e:7e:c3:e9"
+            - "b7:49:73:21:67:9a:29:82:84:8d:4c:d3:a6:a7:8c:b2"
       - run:
           name: Deploy docs to gh-pages branch
           command: './node_modules/.bin/gh-pages --dotfiles --message "[skip ci] Updates" -d dist'
