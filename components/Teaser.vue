@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok" class="pb-8 mb-6 text-left">
+  <div v-editable="blok" class="py-4 mb-6 text-left">
     <h1 class="text-2xl font-normal leading-normal mt-0 mb-2 text-blueGray-800">
       {{ blok.headline }}
     </h1>
