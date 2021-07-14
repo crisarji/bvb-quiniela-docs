@@ -6,7 +6,7 @@
           <span class="font-bold text-gray-800 text-xl text-left">BVB-Quiniela</span>
         </nuxt-link>
       </div>
-      <div class="flex items-center flex-shrink-0 text-black">
+      <!-- <div class="flex items-center flex-shrink-0 text-black">
         <nuxt-link class="text-black hover:underline" to="/">
           English
         </nuxt-link>
@@ -14,7 +14,7 @@
         <nuxt-link class="text-black hover:underline" to="/es">
           Español
         </nuxt-link>
-      </div>
+      </div> -->
     </nav>
   </header>
 </template>
