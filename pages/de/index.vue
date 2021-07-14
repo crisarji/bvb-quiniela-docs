@@ -35,7 +35,7 @@ export default {
     // Loading reference data - Articles in our case
     if(context.store.state.articles.loaded !== '1') {
 
-      let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, { starts_with: 'articles/', version: 'draft' })
+      let articlesRefRes = await context.app.$storyapi.get(`cdn/stories/`, { starts_with: 'de/articles/', version: 'draft' })
       context.store.commit('articles/setArticles', articlesRefRes.data.stories)
       context.store.commit('articles/setLoaded', '1')
     }
@@ -46,7 +46,7 @@ export default {
     // const fullSlug = (context.route.path == '/' || context.route.path == '') ? 'home' : context.route.path
 
     // Load the JSON from the API - loadig the home content (index page)
-    return context.app.$storyapi.get('cdn/stories/home', {
+    return context.app.$storyapi.get('cdn/stories/de/home', {
       version: 'draft'
     }).then((res) => {
       return res.data

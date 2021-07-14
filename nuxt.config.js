@@ -9,6 +9,15 @@ const routerBase =
 
 export default {
   ...routerBase,
+  /*
+  ** Nuxt target
+  ** See https://nuxtjs.org/api/configuration-target
+  */
+  target: 'server',
+  /*
+  ** Headers of the page
+  ** See https://nuxtjs.org/api/configuration-head
+  */
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'bvb-quiniela-docs',
@@ -22,7 +31,7 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ]
   },
 
@@ -32,6 +41,9 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/components',
+    '~/plugins/composition-api.js',
+    '~/plugins/storyblok-rich-text-renderer.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -40,11 +52,20 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
+    // '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',,
+    '@nuxtjs/dotenv'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    [
+      'storyblok-nuxt',
+      {
+        accessToken: process.env.STORYBLOK_PREVIEW_KEY,
+        cacheProvider: 'memory'
+      }
+    ],
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
