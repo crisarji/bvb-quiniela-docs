@@ -7,14 +7,13 @@
         </nuxt-link>
       </div>
       <div class="flex items-center flex-shrink-0 text-black">
-        <!-- TODO: Uncomment when support is ready-->
-        <!-- <nuxt-link class="text-black hover:underline" to="/">
+        <nuxt-link class="text-black hover:underline" to="/">
           English
         </nuxt-link>
         <span>|</span>
         <nuxt-link class="text-black hover:underline" to="/es">
           Español
-        </nuxt-link> -->
+        </nuxt-link>
       </div>
     </nav>
   </header>
