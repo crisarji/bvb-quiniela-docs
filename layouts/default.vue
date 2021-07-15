@@ -14,6 +14,13 @@ export default {
   components: {
     Header,
     Footer
-  }
+  },
+   watch: {
+    $route(value) {
+      if(value.fullPath === '/es' || value.fullPath === '/'){
+        window.location.reload()
+      }
+    }
+  },
 }
 </script>
