@@ -9,6 +9,9 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
+#Note: add the .env file in the root folder and te Storyblok key
+$ STORYBLOK_PREVIEW_KEY=ASDJKSAFHJFDJKSHFDJKSHFKS
+
 # build for production and launch server
 $ npm run build
 $ npm run start
