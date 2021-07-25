@@ -10,40 +10,37 @@ const routerBase =
 export default {
   ...routerBase,
   /*
-  ** Nuxt target
-  ** See https://nuxtjs.org/api/configuration-target
-  */
-  target: 'server',
+   ** Nuxt target
+   ** See https://nuxtjs.org/api/configuration-target
+   */
+  target: "static",
   /*
-  ** Headers of the page
-  ** See https://nuxtjs.org/api/configuration-head
-  */
+   ** Headers of the page
+   ** See https://nuxtjs.org/api/configuration-head
+   */
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'bvb-quiniela-docs',
+    title: "bvb-quiniela-docs",
     htmlAttrs: {
-      lang: 'en'
+      lang: "en"
     },
     meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { charset: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { hid: "description", name: "description", content: "" },
+      { name: "format-detection", content: "telephone=no" }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
-    ]
+    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/components',
-    '~/plugins/composition-api.js',
-    '~/plugins/storyblok-rich-text-renderer.js'
+    "~/plugins/components",
+    "~/plugins/composition-api.js",
+    "~/plugins/storyblok-rich-text-renderer.js"
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,22 +50,22 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     // '@nuxt/typescript-build',
-    '@nuxtjs/tailwindcss',,
-    '@nuxtjs/dotenv'
+    "@nuxtjs/tailwindcss",
+    ,
+    "@nuxtjs/dotenv"
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     [
-      'storyblok-nuxt',
+      "storyblok-nuxt",
       {
         accessToken: process.env.STORYBLOK_PREVIEW_KEY,
-        cacheProvider: 'memory'
+        cacheProvider: "memory"
       }
-    ],
+    ]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
-}
+  build: {}
+};
