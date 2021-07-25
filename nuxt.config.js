@@ -34,7 +34,7 @@ export default {
       {
         rel: "icon",
         type: "image/x-icon",
-        href: "bvb-quiniela-docs/favicon.png"
+        href: "/favicon.png"
       }
     ]
   },
